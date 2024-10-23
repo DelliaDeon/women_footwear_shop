@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sneaker_shop/components/shoe_tile.dart';
 import 'package:sneaker_shop/models/shoe_details.dart';
+import 'package:sneaker_shop/pages/see_all.dart';
 
 import '../models/cart.dart';
 
@@ -72,13 +73,22 @@ class _ShopScreenState extends State<ShopScreen> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.pink.shade900,
-                ),),
+                ),), 
 
-                Text('See All', style: TextStyle(
-                  color: Colors.black45,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                ),)
+                GestureDetector(
+                  onTap: (){
+                    print('Tapped on see all');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SeeAll()),
+                    );
+                  },
+                  child: Text('See All', style: TextStyle(
+                    color: Colors.black45,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),),
+                )
               ],
             ),
             SizedBox(height: 10,),

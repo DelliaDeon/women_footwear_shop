@@ -69,6 +69,9 @@ class _HomePageState extends State<HomePage> {
                     ListTile(
                       leading: Icon(Icons.home),
                       title: Text('H O M E'),
+                      onTap: (){
+                        Navigator.pushNamed(context, '/home');
+                      },
                     ),
 
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),

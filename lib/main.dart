@@ -3,9 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:sneaker_shop/models/cart.dart';
 import 'package:sneaker_shop/pages/homepage.dart';
 import 'package:sneaker_shop/pages/intro_screen.dart';
+import 'package:sneaker_shop/pages/see_all.dart';
 
 void main(){
-  runApp(SneakerShop());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Cart(),
+    child: SneakerShop(),
+  ));
 }
 
 class SneakerShop extends StatelessWidget {
@@ -13,27 +17,16 @@ class SneakerShop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Cart(),
-      builder: (context, child) => MaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(primaryColor: Colors.pink),
         initialRoute: '/intro',
 
         routes: {
           '/intro': (context) => IntroScreen(),
           '/home': (context) => HomePage(),
+          '/see_all': (context) => SeeAll(),
         },
-      ) ,
     );
-
-    /*return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/intro',
-
-      routes: {
-        '/intro': (context) => IntroScreen(),
-        '/home': (context) => HomePage(),
-      },
-    );*/
   }
 }
